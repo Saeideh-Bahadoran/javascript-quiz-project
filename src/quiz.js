@@ -39,5 +39,15 @@ class Quiz {
             return true;
         }
     }
+    filterQuestionsByDifficulty(difficultyNum){
+        if(difficultyNum === 1 || difficultyNum === 2 || difficultyNum === 3 ){
+            this.questions = this.questions.filter((currentQuestion) => currentQuestion.difficulty === difficultyNum)
+        }
+    }
 
+    averageDifficulty(){
+        let average = this.questions.reduce((accumulator, currentQuestion) => accumulator + currentQuestion.difficulty,0);
+        return average / this.questions.length ;
+    }
 }
+
